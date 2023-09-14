@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const routes = require('./routes/Authentication');
 const bootsRoutes = require('./routes/BootsRoutes');
+const cartsRoutes = require('./routes/CartsRoutes');
 require('dotenv').config();
 
 
@@ -12,6 +13,7 @@ app.use(express.json());
 
 app.use('/auth' , routes);
 app.use('/boots' , bootsRoutes);
+app.use('/cart',cartsRoutes);
 
 mongoose.connect(process.env.MONGO_URL,{
     useNewUrlParser : true,
