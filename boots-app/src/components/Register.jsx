@@ -15,7 +15,7 @@ const Register = ({onRegsiter}) => {
         onRegsiter(formData);
     };
 
-
+    
     return(
         <Container style={{marginTop:"70px"}}>
             <h2> Registration </h2>
