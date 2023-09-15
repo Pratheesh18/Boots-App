@@ -6,7 +6,7 @@ import {Container , Card , Row , Col} from 'react-bootstrap';
 const Home = ({boots}) => {
     return(
         <Container>
-            <h2> Svailable Boots </h2>
+            <h2> Available Boots </h2>
             <Row>
                 {boots.map((boot) => (
                     <Col key = {boot.id} xs={12} sm={6} md={4}>

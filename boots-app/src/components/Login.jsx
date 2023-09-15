@@ -15,9 +15,9 @@ const Login = ({ onLogin }) =>  {
   };
 
   return (
-    <Container>
+    <Container style={{marginTop:"70px"}}>
       <h2>Login</h2>
-      <Form onSubmit={handleSubmit}>
+      <Form autoComplete='off' onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label>Username</Form.Label>
           <Form.Control
@@ -25,6 +25,7 @@ const Login = ({ onLogin }) =>  {
             name="username"
             value={formData.username}
             onChange={handleChange}
+            autoComplete='off'
             required
           />
         </Form.Group>
@@ -35,10 +36,11 @@ const Login = ({ onLogin }) =>  {
             name="password"
             value={formData.password}
             onChange={handleChange}
+            autoComplete='off'
             required
           />
         </Form.Group>
-        <Button type="submit">Login</Button>
+        <Button style={{marginTop:"20px"}} type="submit">Login</Button>
       </Form>
     </Container>
   );

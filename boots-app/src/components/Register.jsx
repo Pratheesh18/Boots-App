@@ -17,9 +17,9 @@ const Register = ({onRegsiter}) => {
 
 
     return(
-        <Container>
+        <Container style={{marginTop:"70px"}}>
             <h2> Registration </h2>
-            <Form onSubmit={handleSubmit}>
+            <Form autoComplete='off' onSubmit={handleSubmit}>
                  <Form.Group>
                     <Form.Label> Username </Form.Label>
                     <Form.Control
@@ -27,6 +27,7 @@ const Register = ({onRegsiter}) => {
                           name ="username"
                           value={formData.username}
                           onChange={handleChange}
+                          autoComplete='off'
                           required
                     />
                  </Form.Group>
@@ -37,10 +38,11 @@ const Register = ({onRegsiter}) => {
                          name = 'password'
                          value = {formData.password}
                          onChange = {handleChange}
+                         autoComplete='off'
                          required
                     />
                  </Form.Group>
-                 <Button type='submit' > Register </Button>
+                 <Button style={{marginTop:"20px"}} type='submit' > Register </Button>
             </Form>
         </Container>
     )

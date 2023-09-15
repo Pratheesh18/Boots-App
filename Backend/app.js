@@ -15,6 +15,10 @@ app.use('/auth' , routes);
 app.use('/boots' , bootsRoutes);
 app.use('/cart',cartsRoutes);
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  });
+
 mongoose.connect(process.env.MONGO_URL,{
     useNewUrlParser : true,
     useUnifiedTopology:true,
