@@ -1,0 +1,27 @@
+{
+	"info": {
+		"_postman_id": "c6e21a8c-87a5-4f7c-9dea-9577b668519e",
+		"name": "User Login and Registration",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17558534",
+		"_collection_link": "https://www.postman.com/cryosat-pilot-49641806/workspace/postman-api-fundamentals-student-expert/collection/17558534-c6e21a8c-87a5-4f7c-9dea-9577b668519e?action=share&source=collection_link&creator=17558534"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
