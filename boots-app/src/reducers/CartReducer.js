@@ -1,5 +1,7 @@
 const initialState = {
-    items : [],
+    // items : [{ id: 1, name: "Boot 1", size: "10", color: "Black" },
+    // { id: 2, name: "Boot 2", size: "9", color: "Red" },],
+    items :[]
 };
 
 const cartReducer = (state = initialState , action) => {

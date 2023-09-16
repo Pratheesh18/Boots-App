@@ -1,31 +1,38 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import { Container ,Button , Card ,  Row , Col } from 'react-bootstrap';
 import { addToCart , removeFromCart , increaseQuantity , decreaseQuantity } from '../actions/CartAction';
 
 
 const Cart = ({boots , addToCart , removeFromCart , increaseQuantity , decreaseQuantity}) => {
-    return(
-        <div>
-            <h2> Available Boots </h2>
-            <ul>
-                {boots.map((boot) => (
-                    <li key={boot.id}>
-                        {boots.name} - Size : {boots.size} , color : {boots.color}
-                        <button onClick={() => addToCart(boot.id)}> Add to Cart </button>
-                        <button onClick={() => removeFromCart(boot.id)}> Remove from cart </button>
-                        <button onClick={() => increaseQuantity(boot.id)}> + </button>
-                        <button onClick={() => decreaseQuantity(boot.id)}> - </button>
+    console.log("Cart Component")
 
-                    </li>
+    return(
+        <Container style={{marginTop:"30px"}}>
+            <h2> Cart Items </h2>
+            <Row style={{marginTop:"60px"}}>
+                {boots.map((boot) => (
+                    <Col key={boot.id} xs={12} sm={6} md={4}>
+                        <Card>
+                           <Card.Body>
+                                 <Card.Title> {boot.name} </Card.Title>
+                                 <Card.Text> Size : {boot.size} </Card.Text>
+                                 <Card.Text> Color : {boot.color}  </Card.Text>
+                                 <Button  onClick={() => removeFromCart(boot.id)}> Remove from cart </Button>
+                                 <Button style={{marginLeft:"10px"}} onClick={() => increaseQuantity(boot.id)}> + </Button>
+                                 <Button style={{marginLeft:"10px"}} onClick={() => decreaseQuantity(boot.id)}> - </Button>
+                           </Card.Body>
+                       </Card>
+                    </Col>
                 ))}
-            </ul>
-        </div>
+            </Row>
+        </Container>
     );
 };
 
 
 const mapStateToProps = (state) => ({
-    boots : state.cart.boots,
+    boots : state.cart.items,
 });
 
 

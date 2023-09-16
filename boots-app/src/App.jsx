@@ -8,7 +8,7 @@ import axios from "axios";
 import { Navigate } from "react-router-dom";
 import Cart from "./components/Cart";
 import { useDispatch , useSelector } from "react-redux";
-import { addToCart } from "./actions/CartAction";
+import { addToCart , removeFromCart , increaseQuantity , decreaseQuantity } from "./actions/CartAction";
 
 
 const App = () => {
@@ -22,10 +22,31 @@ const App = () => {
 
   const dispatch = useDispatch();
 
-  const handleClick = (boot) => {
-    dispatch(addToCart(boot));
-    navigate('/cart')
+  const handleAddToCart = (bootId) => {
+    dispatch(addToCart(bootId));
+    navigate('/cart');
   }
+
+  const handleRemoveFromCart = (bootId) => {
+    dispatch(removeFromCart(bootId));
+  }
+
+  const handleIncreaseQuantity = (bootId) => {
+    dispatch(increaseQuantity(bootId));
+  }
+
+
+  const handleDecreaseQuantity = (bootId) => {
+    dispatch(decreaseQuantity(bootId));
+  }
+
+
+
+
+  // const handleClick = (boot) => {
+  //   dispatch(addToCart(boot));
+  //   navigate('/cart')
+  // }
 
   const saveTokenToSessionStorage = (token) => {
     sessionStorage.setItem("Token" , token);
@@ -61,7 +82,7 @@ const App = () => {
         const { token, userId } = response.data;
         saveTokenToSessionStorage(token);
         setUser({ token, userId });
-        navigate('/cart')
+        navigate('/home')
 
       } else {
         console.error("Login Failed");
@@ -75,8 +96,8 @@ const App = () => {
         <Routes>
           <Route index  element={<Register onRegsiter={handleRegister} />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
-          {/* <Route path="/cart" element={user ? <Cart /> : <Navigate to='/login' replace />} /> */}
-          <Route path='/cart' element={user ? (<Cart boots={boots} />) : (<Navigate to='/login' replace />)} />
+          <Route path="/home" element={<Home boots={boots} onAddToCart={handleAddToCart} />} />
+          <Route path='/cart' element={user ? (<Cart boots={boots}  removeFromCart={handleRemoveFromCart} increaseQuantity={handleIncreaseQuantity} decreaseQuantity={handleDecreaseQuantity} />) : (<Navigate to='/login' replace />)} />
         </Routes>
   );
 };
