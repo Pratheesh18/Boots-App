@@ -1,6 +1,6 @@
 import React , {useState} from 'react';
 import {Container , Form , Button} from 'react-bootstrap';
-
+import {Link} from 'react-router-dom';
 
 const Register = ({onRegsiter}) => {
     const [formData , setFormData] = useState({username : '', password : ''});
@@ -44,6 +44,9 @@ const Register = ({onRegsiter}) => {
                  </Form.Group>
                  <Button style={{marginTop:"20px"}} type='submit' > Register </Button>
             </Form>
+            <p style={{marginTop:'20px'}}>
+                Already Have An Account ? <Link to='/login'> Go to Login </Link>
+            </p>
         </Container>
     )
 };
