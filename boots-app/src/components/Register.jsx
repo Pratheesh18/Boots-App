@@ -18,7 +18,7 @@ const Register = ({onRegsiter}) => {
     
     return(
         <Container style={{marginTop:"70px"}}>
-            <h2> Registration </h2>
+            <h2 style={{display:'flex' ,  justifyContent:'center'}}> Registration </h2>
             <Form autoComplete='off' onSubmit={handleSubmit}>
                  <Form.Group>
                     <Form.Label> Username </Form.Label>
@@ -42,10 +42,10 @@ const Register = ({onRegsiter}) => {
                          required
                     />
                  </Form.Group>
-                 <Button style={{marginTop:"20px"}} type='submit' > Register </Button>
+                 <Button style={{marginTop:"20px" , backgroundColor:"blue", border:'none'}} type='submit' > Register </Button>
             </Form>
             <p style={{marginTop:'20px'}}>
-                Already Have An Account ? <Link to='/login'> Go to Login </Link>
+                Already Have An Account ? <Link style={{textDecoration:'none'}} to='/login'> Go to Login </Link>
             </p>
         </Container>
     )

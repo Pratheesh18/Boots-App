@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Login = ({ onLogin }) =>  {
   const [formData, setFormData] = useState({ username: '', password: '' });
@@ -42,6 +43,9 @@ const Login = ({ onLogin }) =>  {
         </Form.Group>
         <Button style={{marginTop:"20px"}} type="submit">Login</Button>
       </Form>
+      <p style={{marginTop:'20px'}}>
+        Don't have an account Go to <Link style={{textDecoration:'none'}} to='/'> Register </Link>
+      </p>
     </Container>
   );
 }
